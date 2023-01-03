@@ -25,7 +25,7 @@ public class Actividad8 {
        System.out.print("Introdueix el numero de columna on anira la fitxa: ");
        nColumna=scan.nextInt();
        
-       
+       return -1;//No esta completo
     }
     
     public static void main(String[] args) {
