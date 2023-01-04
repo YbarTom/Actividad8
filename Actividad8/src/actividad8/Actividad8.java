@@ -17,41 +17,39 @@ public class Actividad8 {
      */
     public static Scanner scan = new Scanner(System.in);
 
-    public static int Jugada(int Tauler[][], int X, int Y) {
-        int nColumna, nJugador, posicioY;
+    public static int Jugada(int Tauler[][], int nColumna, int nJugador) {
+        int posicioX;
         boolean bucle = false;
-        posicioY = Y;
-        //demanem el numero d'usuari que esta jugant
-        System.out.print("Introdueix el numero de Jugador que ets: ");
-        nJugador = scan.nextInt();
-        //demanem el numero de columna
-        System.out.print("Introdueix el numero de columna on anira la fitxa: ");
-        nColumna = scan.nextInt();
+        posicioX = Tauler.length;
 
         do {
-            if (Tauler[nColumna][posicioY] == 0) {
-                Tauler[nColumna][posicioY] = nJugador;
+            if (Tauler[posicioX][nColumna] == 0) {
+                Tauler[posicioX][nColumna] = nJugador;
                 bucle = true;
             } else {
-                posicioY--;
+                posicioX--;
             }
-        } while (bucle == false || posicioY == 1);
+        } while (bucle == false || posicioX == 1);
         //miramos la fila 0 y si esta llena desde un principio hacemos que retorne -1
-        if (Tauler[nColumna][0] == 0) {
-            Tauler[nColumna][posicioY] = nJugador;
-            posicioY = 0;
+        if (Tauler[0][nColumna] == 0) {
+            Tauler[posicioX][nColumna] = nJugador;
+            posicioX = 0;
         } else {
-            posicioY=-1;
+            posicioX = -1;
         }
-        return posicioY;//creo que esta bien 
+        return posicioX;//creo que esta bien 
+    }
+
+    public static int EnRatlla(int Tauler[][], int posicioX, int nColumna) {
+        return -1;//no esta acabado
     }
 
     public static void main(String[] args) {
         //demanem el tamany del tauler
-        int X, Y,prueba;
-        System.out.print("Introdueix la longitud X del Tauler: ");
+        int X, Y, prueba, nColumna, nJugador;
+        System.out.print("Introdueix el nombre de files del Tauler: ");
         X = scan.nextInt();
-        System.out.print("Introdueix la longitud Y del Tauler: ");
+        System.out.print("Introdueix el nombre de columnes del Tauler: ");
         Y = scan.nextInt();
         //creem la matriu amb la longitud introduida per l'usuari
         int Tauler[][] = new int[X][Y];
@@ -62,7 +60,15 @@ public class Actividad8 {
             }
         }
 
-        
+        do {
+            //demanem el numero d'usuari que esta jugant
+            System.out.print("Introdueix el numero de Jugador que ets: ");
+            nJugador = scan.nextInt();
+            //demanem el numero de columna
+            System.out.print("Introdueix el numero de columna on anira la fitxa: ");
+            nColumna = scan.nextInt();
+
+        } while (X == 0/*no esta acabado*/);
     }
 
 }
