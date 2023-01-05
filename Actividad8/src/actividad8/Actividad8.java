@@ -44,6 +44,16 @@ public class Actividad8 {
         return -1;//no esta acabado
     }
 
+    public static void Dibuixa(int Tauler[][]) {
+        //bucle imprimir la matriz
+        for (int i = 0; i < Tauler.length; i++) {
+            for (int j = 0; j < Tauler[0].length; j++) {
+                System.out.print(Tauler[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         //demanem el tamany del tauler
         int X, Y, prueba, nColumna, nJugador;
