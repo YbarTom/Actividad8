@@ -103,17 +103,25 @@ public class Actividad8 {
                 Tauler[i][j] = 0;
             }
         }
-        System.out.println(EnRatlla(Tauler, 1, 1));
         
+        int jugador = 1;
+        int fila = 0;
+        int columna = 0;
         do {
+        	/*
             //demanem el numero d'usuari que esta jugant
             System.out.print("Introdueix el numero de Jugador que ets: ");
             nJugador = scan.nextInt();
             //demanem el numero de columna
             System.out.print("Introdueix el numero de columna on anira la fitxa: ");
             nColumna = scan.nextInt();
-
-        } while (X == 0/*no esta acabado*/);
+			*/
+        	Dibuixa(Tauler);
+        	System.out.println("Torn del jugador "+jugador);
+        	System.out.println("Introdueix la columna: ");
+        	fila = Jugada(Tauler,scan.nextInt(),jugador);
+        	
+        } while (!EnRatlla(Tauler,fila,columna));
     }
 
 }
