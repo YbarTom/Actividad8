@@ -40,8 +40,42 @@ public class Actividad8 {
         return posicioX;//creo que esta bien 
     }
 
-    public static int EnRatlla(int Tauler[][], int posicioX, int nColumna) {
-        return -1;//no esta acabado
+    public static boolean EnRatlla(int Tauler[][], int posicioX, int nColumna) {
+    	int fitxa = Tauler[posicioX][nColumna];
+    	boolean ratlla = false;
+    	if(fitxa == 1||fitxa == 2) {
+    		int contador = 0;
+    		//Comprobar vertical
+    		for(int i = posicioX-3;i<posicioX+3&&contador<4;i++) {
+    			if(i>=0&&i<Tauler.length-1) {
+    				if(Tauler[i][nColumna]==fitxa) {
+    					contador++;
+    				}else {
+    					contador = 0;
+    				}
+    			}
+    		}
+    		if(contador==4) {
+    			ratlla = true;
+    		}else {
+    			contador = 0;
+    			//Comprobar horitzontal
+    			for(int i = nColumna-3;i<nColumna+3&&contador<4;i++) {
+        			if(i>=0&&i<Tauler.length-1) {
+        				if(Tauler[posicioX][i]==fitxa) {
+        					contador++;
+        				}else {
+        					contador = 0;
+        				}
+        			}
+        			if(contador == 4) {
+        				ratlla = true;
+        			}
+        		}
+    		}
+    		
+    	}
+        return ratlla;
     }
 
     public static void Dibuixa(int Tauler[][]) {
@@ -69,7 +103,8 @@ public class Actividad8 {
                 Tauler[i][j] = 0;
             }
         }
-
+        System.out.println(EnRatlla(Tauler, 1, 1));
+        
         do {
             //demanem el numero d'usuari que esta jugant
             System.out.print("Introdueix el numero de Jugador que ets: ");
