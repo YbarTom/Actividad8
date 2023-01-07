@@ -153,8 +153,14 @@ public class Actividad8 {
             System.out.println("Torn del jugador " + jugador);
             System.out.print("Introdueix la columna: ");
             columna=Entero(columna);
-            fila = Jugada(Tauler, scan.nextInt(), jugador);
-            System.out.println("La ficha està situada en la fila: "+(fila+1));
+            fila = Jugada(Tauler, columna, jugador);
+            if(fila>=0){
+                System.out.println("La ficha esta situada en la fila: "+(fila+1));
+            }else if(fila==-1){
+                System.out.println("La ficha no es pot posar a la columna introduida, Introduzca una columna diferente");
+                jugador++;
+            }
+            
 
             jugador++;
 
