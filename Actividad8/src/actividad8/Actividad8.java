@@ -45,11 +45,10 @@ public class Actividad8 {
     }
 
     public static boolean EnRatlla(int Tauler[][], int posicioX, int nColumna) {
-        boolean ratlla = false; 
+        boolean ratlla = false;
         if (posicioX >= 0) {
             int fitxa = Tauler[posicioX][nColumna];
 
-            
             if (fitxa == 1 || fitxa == 2) {
                 int contador = 0;
                 //Comprobar vertical
@@ -96,13 +95,31 @@ public class Actividad8 {
         }
     }
 
+    public static int Entero(int numero) {
+        numero = 0;
+        boolean correcte = false;
+
+        do {
+            if (scan.hasNextInt()) {
+                numero = scan.nextInt();
+                correcte = true;
+            } else {
+                scan.next();
+                System.out.println("El caracter introduit no es un numero,si us plau introduiu un numero: ");
+
+            }
+        } while (correcte == false);
+        
+        return numero;
+    }
+
     public static void main(String[] args) {
         //demanem el tamany del tauler
-        int X, Y, prueba, nColumna, nJugador;
+        int X=0, Y=0, nColumna, nJugador;
         System.out.print("Introdueix el nombre de files del Tauler: ");
-        X = scan.nextInt();
+        X=Entero(X);
         System.out.print("Introdueix el nombre de columnes del Tauler: ");
-        Y = scan.nextInt();
+        Y=Entero(Y);
         //creem la matriu amb la longitud introduida per l'usuari
         int Tauler[][] = new int[X][Y];
         //omplim el tauler de 0
@@ -125,19 +142,18 @@ public class Actividad8 {
             nColumna = scan.nextInt();
              */
             //bucle alternar jugador
-            if(jugador%2!=0){
-                jugador=1;
-            }else if(jugador%2==0){
-                jugador=2;
+            if (jugador % 2 != 0) {
+                jugador = 1;
+            } else if (jugador % 2 == 0) {
+                jugador = 2;
             }
-            
-            
+
             Dibuixa(Tauler);
             System.out.println("Torn del jugador " + jugador);
             System.out.print("Introdueix la columna: ");
-            columna = scan.nextInt();
+            columna=Entero(columna);
             fila = Jugada(Tauler, scan.nextInt(), jugador);
-            
+
             jugador++;
 
         } while (!EnRatlla(Tauler, fila, columna));
