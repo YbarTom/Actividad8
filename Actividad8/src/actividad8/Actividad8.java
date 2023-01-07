@@ -94,6 +94,24 @@ public class Actividad8 {
 			System.out.println();
 		}
 	}
+	
+	public static int Entero(int numero) {
+        numero = 0;
+        boolean correcte = false;
+
+        do {
+            if (scan.hasNextInt()) {
+                numero = scan.nextInt();
+                correcte = true;
+            } else {
+                scan.next();
+                System.out.println("El caracter introduit no es un numero,si us plau introduiu un numero: ");
+
+            }
+        } while (correcte == false);
+        
+        return numero;
+    }
 
 	public static void main(String[] args) {
 		boolean repetir = true;
@@ -125,10 +143,22 @@ public class Actividad8 {
 				}
 
 				Dibuixa(Tauler);
+				
 				System.out.println("Torn del jugador " + jugador);
 				System.out.print("Introdueix la columna: ");
-				columna = scan.nextInt();
+				columna=Entero(columna);
 				fila = Jugada(Tauler, columna, jugador);
+				if(fila>=0){
+	                System.out.println("La ficha esta situada en la fila: "+(fila+1));
+	            }else if(fila==-1){
+	                System.out.println("La ficha no es pot posar a la columna introduida, Introduzca una columna diferente");
+	                // Alternar jugador
+					if (jugador == 1) {
+						jugador = 2;
+					} else {
+						jugador = 1;
+					}
+	            }
 
 			} while (!EnRatlla(Tauler, fila, columna-1));
 			System.out.println("Tornar a jugar? (S/N)");
