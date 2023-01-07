@@ -149,10 +149,12 @@ public class Actividad8 {
             }
 
             Dibuixa(Tauler);
+            
             System.out.println("Torn del jugador " + jugador);
             System.out.print("Introdueix la columna: ");
             columna=Entero(columna);
             fila = Jugada(Tauler, scan.nextInt(), jugador);
+            System.out.println("La ficha està situada en la fila: "+(fila+1));
 
             jugador++;
 
