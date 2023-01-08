@@ -12,13 +12,14 @@ import java.util.Scanner;
 
 public class Actividad8 {
 
-	/**
-	 * @param args the command line arguments
-	 */
 	public static Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * comprova que el numero introduit sigui un enter, si no es torna a demanar
+	 * @param numero
+	 * @return int
+	 */
 	public static int Entero(int numero) {
-            //comprobamos que el numero introducido sea un entero, si no lo es se vuelve a pedir
 		numero = 0;
 		boolean correcte = false;
 
@@ -56,6 +57,9 @@ public class Actividad8 {
 		return opcio;
 	}
 
+	/**
+	 * @param args the command line arguments
+	 */
 	public static void main(String[] args) {
 		boolean repetir = true;
                 //bucle para pedir si se quiere repetir la partida
@@ -121,7 +125,7 @@ public class Actividad8 {
 			ControlTauler.Dibuixa(Tauler);
 			System.out.println("Tornar a jugar? (S/N)");
 			String resposta = scan.next();
-			if (resposta.equals("N")) {
+			if (resposta.equalsIgnoreCase("N")) {
 				repetir = false;
 			}
 		}

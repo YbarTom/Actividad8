@@ -5,6 +5,13 @@ import java.util.Scanner;
 public class ControlTauler {
 	public static Scanner scan = new Scanner(System.in);
 	
+	/**
+	 * Situa la fitxa del jugador corresponent en la fila disponible
+	 * @param Tauler
+	 * @param nColumna
+	 * @param nJugador
+	 * @return posicioX fila on anirà la fitxa
+	 */
 	public static int Jugada(int Tauler[][], int nColumna, int nJugador) {
 		int posicioX;
 		boolean bucle = false;
@@ -31,9 +38,16 @@ public class ControlTauler {
 		}
 		// miramos la fila 0 y si esta llena desde un principio hacemos que retorne -1
 
-		return posicioX;// creo que esta bien
+		return posicioX;
 	}
 
+	/**
+	 * Comprova que la fitxa introduida formi ratlla amb les caselles veines, sense diagonals
+	 * @param Tauler
+	 * @param posicioX
+	 * @param nColumna
+	 * @return true si forma ratlla, false si no
+	 */
 	public static boolean EnRatlla(int Tauler[][], int posicioX, int nColumna) {
 		boolean ratlla = false;
 		if (posicioX >= 0) {
@@ -75,6 +89,10 @@ public class ControlTauler {
 		return ratlla;
 	}
 
+	/**
+	 * Mostra el tauler per pantalla
+	 * @param Tauler
+	 */
 	public static void Dibuixa(int Tauler[][]) {
 		// bucle imprimir la matriz
 		for (int i = 0; i < Tauler.length; i++) {
