@@ -75,6 +75,7 @@ public class Actividad8 {
 				}
 			}
 
+			boolean matriuPlena;
 			int jugador = 2;
 			int fila = 0;
 			int columna = 0;
@@ -90,7 +91,7 @@ public class Actividad8 {
 				ControlTauler.Dibuixa(Tauler);
                                 //indiquem el torn del jugador
 				System.out.println("Torn del jugador " + jugador);
-                                //demanem la columna a la qual es vol posar la fixa
+                                //demanem la columna a la qual es vol posar la fitxa
 				System.out.print("Introdueix la columna: ");
 				columna = escollirOpcio(Y,1);
                                 //cridem a la funcio jugada
@@ -108,8 +109,15 @@ public class Actividad8 {
 						jugador = 1;
 					}
 				}
+				//Comprobar que la matriu estigui buida
+				matriuPlena=true;
+				for(int i = 0; i<Y;i++) {
+					if(Tauler[0][i]==0) {
+						matriuPlena = false;
+					}
+				}
 
-			} while (!ControlTauler.EnRatlla(Tauler, fila, columna - 1));
+			} while (!ControlTauler.EnRatlla(Tauler, fila, columna - 1)&&!matriuPlena);
 			ControlTauler.Dibuixa(Tauler);
 			System.out.println("Tornar a jugar? (S/N)");
 			String resposta = scan.next();

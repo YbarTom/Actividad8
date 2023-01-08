@@ -57,7 +57,7 @@ public class ControlTauler {
 					contador = 0;
 					// Comprobar horitzontal
 					for (int i = nColumna - 3; i <= nColumna + 3 && contador < 4; i++) {
-						if (i >= 0 && i < Tauler.length - 1) {
+						if (i >= 0 && i <= Tauler[0].length - 1) {
 							if (Tauler[posicioX][i] == fitxa) {
 								contador++;
 							} else {
