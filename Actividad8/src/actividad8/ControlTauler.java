@@ -11,8 +11,8 @@ public class ControlTauler {
 		posicioX = Tauler.length - 1;
 
 		if (Tauler[0][nColumna - 1] == 0 && Tauler[1][nColumna - 1] > 0) {
-			Tauler[posicioX][nColumna - 1] = nJugador;
 			posicioX = 0;
+			Tauler[posicioX][nColumna - 1] = nJugador;
 		} else if (Tauler[0][nColumna - 1] > 0 && Tauler[1][nColumna - 1] > 0) {
 			posicioX = -1;
 		}
@@ -22,7 +22,9 @@ public class ControlTauler {
 				if (Tauler[posicioX][nColumna - 1] == 0 && posicioX >= 0) {
 					Tauler[posicioX][nColumna - 1] = nJugador;
 					bucle = true;
-				} else {
+				}else if(posicioX==0) {
+					bucle=true;
+				}else {
 					posicioX--;
 				}
 			} while (bucle == false);

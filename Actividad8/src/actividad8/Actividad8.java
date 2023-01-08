@@ -27,7 +27,7 @@ public class Actividad8 {
 				correcte = true;
 			} else {
 				scan.next();
-				System.out.println("El caracter introduit no es un numero,si us plau introduiu un numero: ");
+				System.out.print("El caracter introduit no es un numero,si us plau introduiu un numero: ");
 
 			}
 		} while (correcte == false);
@@ -39,7 +39,7 @@ public class Actividad8 {
 		boolean repetir = true;
 		while (repetir) {
 			// demanem el tamany del tauler
-			int X=0, Y=0, nColumna, nJugador;
+			int X=0, Y=0;
 			System.out.print("Introdueix el nombre de files del Tauler: ");
 			X = Entero(X);
 			System.out.print("Introdueix el nombre de columnes del Tauler: ");
