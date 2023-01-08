@@ -6,7 +6,7 @@ package actividad8;
 
 /**
  *
- * @author tomyb
+ * @author tomyb, Mario
  */
 import java.util.Scanner;
 

@@ -1,5 +1,10 @@
 package actividad8;
 
+/**
+*
+* @author tomyb, Mario
+*/
+
 import java.util.Scanner;
 
 public class ControlTauler {
