@@ -18,6 +18,7 @@ public class Actividad8 {
 	public static Scanner scan = new Scanner(System.in);
 	
 	public static int Entero(int numero) {
+            //comrpobamos que el numero introducido sea un entero, si no lo es se vuelve a pedir
 		numero = 0;
 		boolean correcte = false;
 
@@ -37,6 +38,7 @@ public class Actividad8 {
 
 	public static void main(String[] args) {
 		boolean repetir = true;
+                //bucle para pedir si se quiere repetir la partida
 		while (repetir) {
 			// demanem el tamany del tauler
 			int X=0, Y=0, nColumna, nJugador;
@@ -56,6 +58,7 @@ public class Actividad8 {
 			int jugador = 2;
 			int fila = 0;
 			int columna = 0;
+                        //bucle para ir pidiendo las jugadas hasta que un jugador gane o se llene el tablero
 			do {
 				// Alternar jugador
 				if (jugador == 1) {
@@ -65,16 +68,19 @@ public class Actividad8 {
 				}
 
 				ControlTauler.Dibuixa(Tauler);
-
+                                //indiquem el torn del jugador
 				System.out.println("Torn del jugador " + jugador);
+                                //demanem la columna a la qual es vol posar la fixa
 				System.out.print("Introdueix la columna: ");
 				columna = Entero(columna);
+                                //cridem a la funcio jugada
 				fila = ControlTauler.Jugada(Tauler, columna, jugador);
+                                //indiquem en quina fila s'ha colocat la fixa i si no s'ha pogut es torna a demanar
 				if (fila >= 0) {
-					System.out.println("La ficha esta situada en la fila: " + (fila + 1));
+					System.out.println("La fixa esta situada en la fila: " + (fila + 1));
 				} else if (fila == -1) {
 					System.out.println(
-							"La ficha no es pot posar a la columna introduida, Introduzca una columna diferente");
+							"La fixa no es pot posar a la columna introduida, Introduzca una columna diferente");
 					// Alternar jugador
 					if (jugador == 1) {
 						jugador = 2;
